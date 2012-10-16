@@ -1,5 +1,5 @@
 require 'treetop'
-require 'mongoid/oslc/oslc_grammar'
+require 'mongoid/oslc/grammar'
 
 module Mongoid
   module Oslc
@@ -10,8 +10,8 @@ module Mongoid
         options = { :verbose => true }
         options.merge!(args.extract_options!)
 
-        Treetop.load File.join(File.dirname(__FILE__), "oslc_grammar")
-        @parser = OslcGrammarParser.new
+        Treetop.load File.join(File.dirname(__FILE__), "grammar")
+        @parser = GrammarParser.new
 
         tree = @parser.parse(query)
         raise Search::QueryParsingError.new(query, @parser.index) if tree.nil?

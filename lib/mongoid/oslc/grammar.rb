@@ -2,7 +2,7 @@ require 'treetop'
 
 module Mongoid
   module Oslc
-    module OslcGrammar
+    module Grammar
       class GrammarNode < Treetop::Runtime::SyntaxNode
         def to_mongo_query
           elements[0].to_mongo_query

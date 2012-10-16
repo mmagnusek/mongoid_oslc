@@ -20,14 +20,14 @@
 # string_esc    ::= /* a string enclosed in double quotes, with certain characters escaped. See below. */
 # LANGTAG       ::= /* see "SPARQL Query Language for RDF", http://www.w3.org/TR/rdf-sparql-query/#rLANGTAG */
 
-grammar OslcGrammar
+grammar Grammar
 
   rule decision
     binary_decision / simple_term
   end
 
   rule binary_decision
-    operand_1:simple_term space? boolean_op space? operand_2:decision <Mongoid::Oslc::OslcGrammar::BinaryDecision>
+    operand_1:simple_term space? boolean_op space? operand_2:decision <Mongoid::Oslc::Grammar::BinaryDecision>
   end
 
   rule simple_term
@@ -35,11 +35,11 @@ grammar OslcGrammar
   end
 
   rule term
-    field comparison_op value <Mongoid::Oslc::OslcGrammar::Condition>
+    field comparison_op value <Mongoid::Oslc::Grammar::Condition>
   end
 
   rule boolean_op
-    'and' <Mongoid::Oslc::OslcGrammar::LogicalOperator>
+    'and' <Mongoid::Oslc::Grammar::LogicalOperator>
   end
 
   rule space
@@ -47,11 +47,11 @@ grammar OslcGrammar
   end
 
   rule field
-    [\w\:]+ <Mongoid::Oslc::OslcGrammar::Field>
+    [\w\:]+ <Mongoid::Oslc::Grammar::Field>
   end
 
   rule comparison_op
-    [\=\>\<\!] <Mongoid::Oslc::OslcGrammar::Operator>
+    [\=\>\<\!] <Mongoid::Oslc::Grammar::Operator>
   end
 
   rule value
@@ -59,7 +59,7 @@ grammar OslcGrammar
   end
 
   rule uri_ref_esc
-    [\w]+ <Mongoid::Oslc::OslcGrammar::UriRefEsc>
+    [\w]+ <Mongoid::Oslc::Grammar::UriRefEsc>
   end
 
   rule literal_value
@@ -67,7 +67,7 @@ grammar OslcGrammar
   end
 
   rule boolean
-    'true' <Mongoid::Oslc::OslcGrammar::BooleanValue> / 'false' <Mongoid::Oslc::OslcGrammar::BooleanValue>
+    'true' <Mongoid::Oslc::Grammar::BooleanValue> / 'false' <Mongoid::Oslc::Grammar::BooleanValue>
   end
 
   rule decimal
@@ -75,6 +75,6 @@ grammar OslcGrammar
   end
 
   rule string_esc
-    '"' [^\"]* '"' <Mongoid::Oslc::OslcGrammar::StringEsc>
+    '"' [^\"]* '"' <Mongoid::Oslc::Grammar::StringEsc>
   end
 end
