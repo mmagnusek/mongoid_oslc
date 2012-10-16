@@ -9,8 +9,8 @@ Gem::Specification.new do |gem|
   gem.version       = Mongoid::Oslc::VERSION
   gem.authors       = ["Martin Magnusek"]
   gem.email         = ["magnusekm@gmail.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
+  gem.description   = %q{Extension for mongoid to parse oslc.where}
+  gem.summary       = ""
   gem.homepage      = ""
 
   gem.add_runtime_dependency 'mongoid', ['<= 4.0', '>= 3.0']
