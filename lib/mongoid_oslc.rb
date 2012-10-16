@@ -1,5 +1,3 @@
-require "mongoid_oslc/version"
+require "mongoid"
+require "mongoid/oslc/version"
 
-module MongoidOslc
-  # Your code goes here...
-end
