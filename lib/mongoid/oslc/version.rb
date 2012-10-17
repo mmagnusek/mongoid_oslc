@@ -1,3 +1,5 @@
-module Mongoid::Oslc
-  VERSION = '0.0.1'
+module Mongoid
+  module Oslc
+    VERSION = '0.0.2'
+  end
 end

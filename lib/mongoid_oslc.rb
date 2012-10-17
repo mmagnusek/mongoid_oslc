@@ -1,3 +1,1 @@
-require "mongoid"
-require "mongoid/oslc/version"
-
+require "mongoid/oslc"

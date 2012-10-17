@@ -1,8 +1,5 @@
 # -*- encoding: utf-8 -*-
-lib = File.expand_path('../lib', __FILE__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'mongoid'
-require 'mongoid/oslc/version'
+require File.expand_path('../lib/mongoid/oslc/version', __FILE__)
 
 Gem::Specification.new do |gem|
   gem.name          = "mongoid_oslc"
@@ -13,7 +10,8 @@ Gem::Specification.new do |gem|
   gem.summary       = ""
   gem.homepage      = ""
 
-  gem.add_runtime_dependency 'mongoid', ['<= 4.0', '>= 3.0']
+  gem.add_runtime_dependency 'activesupport', '~> 3.0'
+  gem.add_runtime_dependency 'mongoid', '>= 3.0', '< 4.0'
   gem.add_runtime_dependency 'treetop'
 
   gem.add_development_dependency('rake', ['>= 0.9.2'])

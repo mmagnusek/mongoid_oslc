@@ -1,4 +1,7 @@
+require 'mongoid'
+require 'mongoid/oslc/version'
 require 'mongoid/oslc/strategy'
+require 'active_support/concern'
 
 # OSLC
 OSLC_FIELDS_MAPPING ||= {
