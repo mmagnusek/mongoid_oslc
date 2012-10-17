@@ -3,14 +3,6 @@ require 'mongoid/oslc/version'
 require 'mongoid/oslc/strategy'
 require 'active_support/concern'
 
-# OSLC
-OSLC_FIELDS_MAPPING ||= {
-  "dcterms:title"           => "title",
-  "dcterms:description"     => "description",
-  "dcterms:created"         => "created_at",
-  "oslc_cm:closed"          => "closed"
-}
-
 module Mongoid
   module Oslc
     extend ActiveSupport::Concern

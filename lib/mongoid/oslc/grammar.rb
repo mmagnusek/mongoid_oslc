@@ -72,10 +72,25 @@ module Mongoid
 
       class Condition < GrammarNode
         def to_mongo_query
-          field = OSLC_FIELDS_MAPPING[elements[0].text_value]
+          field = fields[elements[0].text_value]
           value = elements[2].to_mongo_query
           operator_with_value = elements[1].to_mongo_query_with_value(value)
           { field => operator_with_value }
+        end
+
+        private
+
+        def fields
+          @fields = if defined?(OSLC_FIELDS_MAPPING)
+            OSLC_FIELDS_MAPPING
+          else
+            {
+              "dcterms:title"           => "title",
+              "dcterms:description"     => "description",
+              "dcterms:created"         => "created_at",
+              "oslc_cm:closed"          => "closed"
+            }
+          end
         end
       end
     end
